@@ -1,10 +1,11 @@
 import { sql } from "drizzle-orm";
 import { pgEnum, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
+import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 
 import { createTable } from "../utility";
 
-export const userRoleEnum = pgEnum("user_role", ["USER", "ADMIN"]);
 export type UserRole = "USER" | "ADMIN";
+export const userRoleEnum = pgEnum("user_role", ["USER", "ADMIN"]);
 
 const users = createTable("users", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -24,3 +25,6 @@ export default users;
 
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
+
+export const selectUserSchema = createSelectSchema(users);
+export const insertUserSchema = createInsertSchema(users);
