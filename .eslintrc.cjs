@@ -4,7 +4,7 @@ const config = {
   parserOptions: {
     project: true,
   },
-  plugins: ["@typescript-eslint", "drizzle", "check-file"],
+  plugins: ["@typescript-eslint", "drizzle", "check-file", "n"],
   extends: [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended-type-checked",
@@ -65,6 +65,7 @@ const config = {
         "src/**/!^[.*": "KEBAB_CASE",
       },
     ],
+    "n/no-process-env": ["error"],
   },
 };
 module.exports = config;
