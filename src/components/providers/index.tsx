@@ -10,7 +10,7 @@ export default function Providers({ children }: PropsWithChildren) {
   return (
     <ThemeProvider>
       <TRPCReactProvider>
-        {children} <Toaster /> <TailwindIndicator />
+        {children} <Toaster richColors /> <TailwindIndicator />
       </TRPCReactProvider>
     </ThemeProvider>
   );

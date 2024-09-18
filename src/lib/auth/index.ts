@@ -1,16 +1,18 @@
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import NextAuth, { type DefaultSession } from "next-auth";
 
+import { getUserById } from "~/actions/user";
 import { env } from "~/env";
 import { db } from "~/server/db";
-import { accounts, sessions } from "~/server/db/schema";
+import {
+  accounts,
+  sessions,
+  users,
+  verificationTokens,
+} from "~/server/db/schema";
 import type { UserRole } from "~/server/db/schema/users";
-import users from "~/server/db/schema/users";
-import verificationTokens from "~/server/db/schema/verification-tokens";
 
 import authConfig from "./config";
-
-// import { getUserById } from "@/lib/user";
 
 // More info: https://authjs.dev/getting-started/typescript#module-augmentation
 declare module "next-auth" {
@@ -62,9 +64,7 @@ export const {
     async jwt({ token }) {
       if (!token.sub) return token;
 
-      const dbUser = await db.query.users.findFirst({
-        where: (table, { eq }) => eq(table.id, token.sub!),
-      });
+      const dbUser = await getUserById(token.sub);
 
       if (!dbUser) return token;
 

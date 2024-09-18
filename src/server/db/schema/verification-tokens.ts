@@ -3,7 +3,7 @@ import { primaryKey, text, timestamp } from "drizzle-orm/pg-core";
 import { createTable } from "../utility";
 
 const verificationTokens = createTable(
-  "verificationToken",
+  "verification_token",
   {
     identifier: text("identifier").notNull(),
     token: text("token").notNull(),

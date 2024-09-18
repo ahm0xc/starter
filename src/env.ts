@@ -1,3 +1,4 @@
+/* eslint-disable n/no-process-env */
 import { vercel } from "@t3-oss/env-core/presets";
 import { createEnv } from "@t3-oss/env-nextjs";
 import { type ZodError, z } from "zod";
@@ -9,6 +10,7 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
+    // nodejs
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
@@ -27,6 +29,9 @@ export const env = createEnv({
     // auth
     GOOGLE_CLIENT_ID: z.string(),
     GOOGLE_CLIENT_SECRET: z.string(),
+    // email
+    RESEND_API_KEY: z.string(),
+    EMAIL_FROM: z.string(),
   },
 
   /**
@@ -35,16 +40,17 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    // NEXT_PUBLIC_CLIENTVAR: z.string(),
+    // base
+    NEXT_PUBLIC_APP_URL: z.string(),
   },
 
   /**
    * You can't destruct `process.env` as a regular object in the Next.js edge runtimes (e.g.
    * middlewares) or client-side so we need to destruct manually.
    */
-  // @ts-expect-error untyped `process.env`
-  // eslint-disable-next-line n/no-process-env
-  runtimeEnv: process.env,
+  experimental__runtimeEnv: {
+    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+  },
   onValidationError: (error: ZodError) => {
     console.error(
       "❌ Invalid environment variables:",

@@ -11,7 +11,7 @@ const users = createTable("users", {
   name: varchar("name", { length: 255 }),
   email: varchar("email", { length: 320 }).notNull().unique(),
   emailVerified: timestamp("emailVerified", { mode: "date" }),
-  image: varchar("image", { length: 2048 }).notNull(),
+  image: varchar("image", { length: 2048 }),
   role: userRoleEnum("role").default("USER"),
 
   createdAt: timestamp("createdAt", { mode: "date" }).defaultNow(),

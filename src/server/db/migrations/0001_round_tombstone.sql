@@ -1,1 +1,0 @@
-ALTER TABLE "starter_users" DROP COLUMN IF EXISTS "test";
