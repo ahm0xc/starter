@@ -15,6 +15,11 @@ const users = createTable("users", {
   image: varchar("image", { length: 2048 }),
   role: userRoleEnum("role").default("USER"),
 
+  // subscription
+  customerId: varchar("customer_id", { length: 255 }),
+  subscriptionId: varchar("subscription_id", { length: 255 }),
+  priceId: varchar("price_id", { length: 255 }),
+
   createdAt: timestamp("createdAt", { mode: "date" }).defaultNow(),
   updatedAt: timestamp("updatedAt", { mode: "date" })
     .defaultNow()

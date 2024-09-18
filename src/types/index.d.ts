@@ -1,6 +1,6 @@
 import type { Icon as PhosphorIconType } from "@phosphor-icons/react";
 
-import { type UserRole } from "~/server/db/schema/users";
+import { User, type UserRole } from "~/server/db/schema/users";
 
 export type SiteConfig = {
   name: string;
@@ -14,7 +14,9 @@ export type SiteConfig = {
   };
   author: {
     name: string;
+    handle: string;
   };
+  keywords: string[];
 };
 
 export type NavItem = {
@@ -71,4 +73,33 @@ export type TestimonialType = {
   job: string;
   image: string;
   review: string;
+};
+
+// Subscription
+export type SubscriptionPlan = {
+  title: string;
+  description: string;
+  benefits: string[];
+  limitations: string[];
+  prices: {
+    monthly: number;
+    yearly: number;
+  };
+  stripeIds: {
+    monthly: string | null;
+    yearly: string | null;
+  };
+};
+
+export type UserSubscriptionPlan = SubscriptionPlan &
+  Pick<User, "customerId" | "subscriptionId" | "priceId"> & {
+    stripeCurrentPeriodEnd: number;
+    isPaid: boolean;
+    interval: "month" | "year" | null;
+    isCanceled?: boolean;
+  };
+
+export type ColumnType = string | boolean | null;
+export type PlansRow = { feature: string; tooltip?: string } & {
+  [key in (typeof plansColumns)[number]]: ColumnType;
 };

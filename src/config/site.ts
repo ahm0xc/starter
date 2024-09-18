@@ -15,8 +15,10 @@ export const siteConfig: SiteConfig = {
   },
   author: {
     name: "ahm0xc",
+    handle: "@ahm0xc",
   },
   mailSupport: "support@starter.com",
+  keywords: [],
 };
 
 export const footerLinks: SidebarNavItem[] = [
