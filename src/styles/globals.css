@@ -64,3 +64,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .step {
+    counter-increment: step;
+  }
+
+  .step:before {
+    @apply absolute inline-flex h-9 w-9 items-center justify-center rounded-full border-4 border-background bg-muted text-center -indent-px font-mono text-base font-medium;
+    @apply ml-[-50px] mt-[-4px];
+    content: counter(step);
+  }
+}
+
+.text-gradient_indigo-purple {
+  background: linear-gradient(90deg, #6366f1 0%, rgb(168 85 247 / 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

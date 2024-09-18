@@ -1,15 +1,24 @@
-import ThemeToggle from "~/components/theme-toggle";
-import { auth } from "~/lib/auth";
+import { infos } from "~/config/landing";
+
+import BentoGrid from "./_components/bento-grid";
+import Features from "./_components/features";
+import HeroLanding from "./_components/hero-landing";
+import InfoLanding from "./_components/info-landing";
+import Powered from "./_components/powered";
+import PreviewLanding from "./_components/preview-landing";
+import Testimonials from "./_components/testimonials";
 
 export default async function HomePage() {
-  const session = await auth();
-
   return (
-    <div>
-      Home Page <ThemeToggle />
-      <pre>
-        <code>{JSON.stringify(session, undefined, 2)}</code>
-      </pre>
-    </div>
+    <>
+      <HeroLanding />
+      <PreviewLanding />
+      <Powered />
+      <BentoGrid />
+      <InfoLanding data={infos[0]!} reverse={true} />
+      <InfoLanding data={infos[1]!} />
+      <Features />
+      <Testimonials />
+    </>
   );
 }

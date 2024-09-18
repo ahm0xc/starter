@@ -1,4 +1,4 @@
-import { type Icons } from "@/components/shared/icons";
+import type { Icon as PhosphorIconType } from "@phosphor-icons/react";
 
 import { type UserRole } from "~/server/db/schema/users";
 
@@ -24,7 +24,7 @@ export type NavItem = {
   disabled?: boolean;
   external?: boolean;
   authorizeOnly?: UserRole;
-  icon?: keyof typeof Icons;
+  icon?: PhosphorIconType;
 };
 
 export type MainNavItem = NavItem;
@@ -37,7 +37,7 @@ export type SidebarNavItem = {
   title: string;
   items: NavItem[];
   authorizeOnly?: UserRole;
-  icon?: keyof typeof Icons;
+  icon?: PhosphorIconType;
 };
 
 export type DocsConfig = {
@@ -47,7 +47,7 @@ export type DocsConfig = {
 
 // landing sections
 export type InfoList = {
-  icon: keyof typeof Icons;
+  icon: PhosphorIconType;
   title: string;
   description: string;
 };
@@ -63,7 +63,7 @@ export type FeatureLdg = {
   title: string;
   description: string;
   link: string;
-  icon: keyof typeof Icons;
+  icon?: PhosphorIconType;
 };
 
 export type TestimonialType = {
