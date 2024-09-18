@@ -17,6 +17,8 @@ export default async function requireAuth(props?: RequireAuthProps) {
 
     const redirectUrl = fullCallbackUrl ?? "/";
 
-    return redirect(redirectUrl);
+    redirect(redirectUrl);
   }
+
+  return session;
 }
