@@ -66,6 +66,7 @@ const config = {
       },
     ],
     "n/no-process-env": ["error"],
+    "no-console": ["error"],
   },
 };
 module.exports = config;
