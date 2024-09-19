@@ -52,7 +52,7 @@ export const env = createEnv({
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
   },
   onValidationError: (error: ZodError) => {
-    console.error(
+    console.log(
       "❌ Invalid environment variables:",
       error.flatten().fieldErrors
     );
