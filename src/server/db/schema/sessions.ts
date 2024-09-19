@@ -1,4 +1,3 @@
-import { sql } from "drizzle-orm";
 import { text, timestamp, uuid } from "drizzle-orm/pg-core";
 
 import { createTable } from "../utility";
@@ -10,11 +9,6 @@ const sessions = createTable("session", {
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
   expires: timestamp("expires", { mode: "date" }).notNull(),
-
-  createdAt: timestamp("createdAt", { mode: "date" }).defaultNow(),
-  updatedAt: timestamp("updatedAt", { mode: "date" })
-    .defaultNow()
-    .$onUpdate(() => sql`CURRENT_TIMESTAMP`),
 });
 
 export default sessions;

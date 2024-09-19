@@ -5,7 +5,8 @@ import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { createTable } from "../utility";
 
 export type UserRole = "USER" | "ADMIN";
-export const userRoleEnum = pgEnum("user_role", ["USER", "ADMIN"]);
+export const userRoles = ["USER", "ADMIN"] as const;
+export const userRoleEnum = pgEnum("user_role", userRoles);
 
 const users = createTable("users", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -20,8 +21,8 @@ const users = createTable("users", {
   subscriptionId: varchar("subscription_id", { length: 255 }),
   priceId: varchar("price_id", { length: 255 }),
 
-  createdAt: timestamp("createdAt", { mode: "date" }).defaultNow(),
-  updatedAt: timestamp("updatedAt", { mode: "date" })
+  createdAt: timestamp("createdAt", { mode: "string" }).defaultNow(),
+  updatedAt: timestamp("updatedAt", { mode: "string" })
     .defaultNow()
     .$onUpdate(() => sql`CURRENT_TIMESTAMP`),
 });
