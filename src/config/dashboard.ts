@@ -1,15 +1,14 @@
 import {
   BookOpen,
   ChartLine,
-  Chat,
-  Gear,
+  ChatCircleDots,
+  GearSix,
   House,
-  HouseLine,
   Laptop,
-  NoteBlank,
+  Note,
   Package,
   Wallet,
-} from "@phosphor-icons/react/dist/ssr";
+} from "@phosphor-icons/react";
 
 import type { SidebarNavItem } from "~/types";
 
@@ -23,14 +22,22 @@ export const sidebarLinks: SidebarNavItem[] = [
         title: "Admin Panel",
         authorizeOnly: "ADMIN",
       },
-      { href: "/dashboard", icon: House, title: "Dashboard" },
+      {
+        href: "/dashboard",
+        icon: House,
+        title: "Dashboard",
+      },
       {
         href: "/dashboard/billing",
         icon: Wallet,
         title: "Billing",
         authorizeOnly: "USER",
       },
-      { href: "/dashboard/charts", icon: ChartLine, title: "Charts" },
+      {
+        href: "/dashboard/charts",
+        icon: ChartLine,
+        title: "Charts",
+      },
       {
         href: "/admin/orders",
         icon: Package,
@@ -40,7 +47,7 @@ export const sidebarLinks: SidebarNavItem[] = [
       },
       {
         href: "/dashboard/posts",
-        icon: NoteBlank,
+        icon: Note,
         title: "User Posts",
         authorizeOnly: "USER",
         disabled: true,
@@ -50,12 +57,24 @@ export const sidebarLinks: SidebarNavItem[] = [
   {
     title: "OPTIONS",
     items: [
-      { href: "/dashboard/settings", icon: Gear, title: "Settings" },
-      { href: "/", icon: HouseLine, title: "Homepage" },
-      { href: "/docs", icon: BookOpen, title: "Documentation" },
+      {
+        href: "/dashboard/settings",
+        icon: GearSix,
+        title: "Settings",
+      },
+      {
+        href: "/",
+        icon: House,
+        title: "Homepage",
+      },
+      {
+        href: "/docs",
+        icon: BookOpen,
+        title: "Documentation",
+      },
       {
         href: "#",
-        icon: Chat,
+        icon: ChatCircleDots,
         title: "Support",
         authorizeOnly: "USER",
         disabled: true,
