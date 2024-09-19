@@ -6,6 +6,8 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import { ArrowRight, GithubLogo, MagnifyingGlass } from "@phosphor-icons/react";
 import { useSession } from "next-auth/react";
 
+import { useModalsStore } from "~/components/modals";
+import AuthModal, { AuthModalId } from "~/components/modals/auth-modal";
 import { Icons } from "~/components/shared/icons";
 import MaxWidthWrapper from "~/components/shared/max-width-wrapper";
 import { Button } from "~/components/ui/button";
@@ -23,17 +25,22 @@ interface NavBarProps {
 
 export function NavBar({ scroll = false }: NavBarProps) {
   const scrolled = useScroll(50);
-  const { data: session, status } = useSession();
+  const { open: openModal } = useModalsStore();
 
+  const { data: session, status } = useSession();
   const selectedLayout = useSelectedLayoutSegment();
+
   const documentation = selectedLayout === "docs";
+
+  function openAuthModal() {
+    openModal({ id: AuthModalId, children: <AuthModal /> });
+  }
 
   const configMap = {
     docs: docsConfig.mainNav,
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const links: unknown[] =
+  const links =
     (selectedLayout && configMap[selectedLayout as keyof typeof configMap]) ??
     marketingConfig.mainNav;
 
@@ -117,7 +124,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
               className="hidden gap-2 px-5 md:flex rounded-full"
               variant="default"
               size="sm"
-              //   onClick={() => setShowSignInModal(true)}
+              onClick={openAuthModal}
             >
               <span>Sign In</span>
               <ArrowRight className="size-4" />
