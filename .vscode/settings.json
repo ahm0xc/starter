@@ -13,5 +13,13 @@
     "**/app/**/layout.tsx": "${dirname} - Layout",
     "**/components/**/index.tsx": "${dirname} - Component"
   },
-  "cSpell.words": ["Bento", "Consola", "jiti", "upstash", "zustand"]
+  "cSpell.words": [
+    "Bento",
+    "Consola",
+    "contentlayer",
+    "favicons",
+    "jiti",
+    "upstash",
+    "zustand"
+  ]
 }

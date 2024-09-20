@@ -1,4 +1,5 @@
 import createJiti from "jiti";
+import { withContentlayer } from "next-contentlayer2";
 import { fileURLToPath } from "node:url";
 
 const jiti = createJiti(fileURLToPath(import.meta.url));
@@ -11,6 +12,7 @@ jiti("./src/env");
 
 /** @type {import("next").NextConfig} */
 const config = {
+  reactStrictMode: true,
   images: {
     remotePatterns: [{ hostname: "randomuser.me" }],
   },
@@ -22,4 +24,4 @@ const config = {
   },
 };
 
-export default config;
+export default withContentlayer(config);

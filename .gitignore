@@ -3,6 +3,9 @@
 # docker
 docker-data
 
+# contentlayer
+.contentlayer
+
 # dependencies
 /node_modules
 /.pnp
