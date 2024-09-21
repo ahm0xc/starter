@@ -4,10 +4,10 @@ import { notFound } from "next/navigation";
 
 import { allGuides } from "contentlayer/generated";
 import { ChevronLeft } from "lucide-react";
+import { buttonVariants } from "ui/button";
 
 import { Mdx } from "~/components/content/mdx-components";
 import MaxWidthWrapper from "~/components/shared/max-width-wrapper";
-import { buttonVariants } from "~/components/ui/button";
 import { siteConfig } from "~/config/site";
 import "~/styles/mdx.css";
 import { constructMetadata } from "~/utils/base";

@@ -1,8 +1,7 @@
 "use client";
 
+import { Dialog } from "ui/dialog";
 import { create } from "zustand";
-
-import { Dialog } from "~/components/ui/dialog";
 
 interface ModalType {
   id: string;

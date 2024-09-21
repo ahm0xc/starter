@@ -2,8 +2,8 @@
 
 import { User as UserIcon } from "@phosphor-icons/react";
 import { type AvatarProps } from "@radix-ui/react-avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "ui/avatar";
 
-import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { type User } from "~/server/db/schema/users";
 
 interface UserAvatarProps extends AvatarProps {

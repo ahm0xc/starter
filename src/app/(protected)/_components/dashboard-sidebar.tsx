@@ -7,18 +7,18 @@ import { usePathname } from "next/navigation";
 
 import { ArrowRight } from "@phosphor-icons/react";
 import { Menu, PanelLeftClose, PanelRightClose } from "lucide-react";
-
-import { Icons } from "~/components/shared/icons";
-import { Badge } from "~/components/ui/badge";
-import { Button } from "~/components/ui/button";
-import { ScrollArea } from "~/components/ui/scroll-area";
-import { Sheet, SheetContent, SheetTrigger } from "~/components/ui/sheet";
+import { Badge } from "ui/badge";
+import { Button } from "ui/button";
+import { ScrollArea } from "ui/scroll-area";
+import { Sheet, SheetContent, SheetTrigger } from "ui/sheet";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "~/components/ui/tooltip";
+} from "ui/tooltip";
+
+import { Icons } from "~/components/shared/icons";
 import { sidebarLinks } from "~/config/dashboard";
 import { siteConfig } from "~/config/site";
 import { useMediaQuery } from "~/hooks/use-media-query";

@@ -4,12 +4,12 @@ import { useState } from "react";
 
 import { signOut, useSession } from "next-auth/react";
 import { toast } from "sonner";
+import { Button } from "ui/button";
+import { DialogContent } from "ui/dialog";
+import { Input } from "ui/input";
 
 import { deleteUserAccount } from "~/actions/user";
 import UserAvatar from "~/components/shared/user-avatar";
-import { Button } from "~/components/ui/button";
-import { DialogContent } from "~/components/ui/dialog";
-import { Input } from "~/components/ui/input";
 
 export const DeleteAccountConfirmationModalId = "delete-account-confirmation";
 

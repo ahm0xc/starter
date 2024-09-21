@@ -7,13 +7,13 @@ import { Spinner } from "@phosphor-icons/react";
 import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { Button } from "ui/button";
+import { Input } from "ui/input";
+import { Label } from "ui/label";
 import { type z } from "zod";
 
 import { updateUserName } from "~/actions/user";
 import { SectionColumns } from "~/app/(protected)/_components/section-column";
-import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
-import { Label } from "~/components/ui/label";
 import { userNameSchema } from "~/lib/validations/user";
 import type { User } from "~/server/db/schema/users";
 

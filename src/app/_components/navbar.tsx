@@ -5,13 +5,13 @@ import { useSelectedLayoutSegment } from "next/navigation";
 
 import { ArrowRight, GithubLogo, MagnifyingGlass } from "@phosphor-icons/react";
 import { useSession } from "next-auth/react";
+import { Button } from "ui/button";
+import { Skeleton } from "ui/skeleton";
 
 import { useModalsStore } from "~/components/modals";
 import AuthModal, { AuthModalId } from "~/components/modals/auth-modal";
 import { Icons } from "~/components/shared/icons";
 import MaxWidthWrapper from "~/components/shared/max-width-wrapper";
-import { Button } from "~/components/ui/button";
-import { Skeleton } from "~/components/ui/skeleton";
 import { docsConfig } from "~/config/docs";
 import { marketingConfig } from "~/config/marketing";
 import { siteConfig } from "~/config/site";

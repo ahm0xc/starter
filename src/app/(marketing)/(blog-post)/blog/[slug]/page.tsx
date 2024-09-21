@@ -3,13 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { allPosts } from "contentlayer/generated";
+import { buttonVariants } from "ui/button";
 
 import { DashboardTableOfContents } from "~/app/(docs)/_components/toc";
 import Author from "~/components/content/author";
 import { Mdx } from "~/components/content/mdx-components";
 import BlurImage from "~/components/shared/blur-image";
 import MaxWidthWrapper from "~/components/shared/max-width-wrapper";
-import { buttonVariants } from "~/components/ui/button";
 import { BLOG_CATEGORIES } from "~/config/blog";
 import "~/styles/mdx.css";
 import {

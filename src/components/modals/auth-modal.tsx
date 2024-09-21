@@ -4,10 +4,10 @@ import { useState } from "react";
 
 import { GoogleLogo, Spinner } from "@phosphor-icons/react";
 import { signIn } from "next-auth/react";
+import { Button } from "ui/button";
+import { DialogContent } from "ui/dialog";
 
 import { Icons } from "~/components/shared/icons";
-import { Button } from "~/components/ui/button";
-import { DialogContent } from "~/components/ui/dialog";
 import { siteConfig } from "~/config/site";
 
 import { useModalsStore } from ".";

@@ -6,8 +6,8 @@ import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Button } from "ui/button";
 
-import { Button } from "~/components/ui/button";
 import { cn } from "~/utils/tailwindcss";
 
 type CarouselApi = UseEmblaCarouselType[1];

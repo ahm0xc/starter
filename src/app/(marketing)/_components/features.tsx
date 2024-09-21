@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 import { ArrowUpRight, DotOutline } from "@phosphor-icons/react/dist/ssr";
+import { Button } from "ui/button";
 
 import HeaderSection from "~/components/shared/header-section";
 import MaxWidthWrapper from "~/components/shared/max-width-wrapper";
-import { Button } from "~/components/ui/button";
 import { features } from "~/config/landing";
 
 export default function Features() {

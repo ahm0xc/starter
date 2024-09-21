@@ -1,10 +1,11 @@
-import HeaderSection from "~/components/shared/header-section";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "~/components/ui/accordion";
+} from "ui/accordion";
+
+import HeaderSection from "~/components/shared/header-section";
 
 const pricingFaqData = [
   {

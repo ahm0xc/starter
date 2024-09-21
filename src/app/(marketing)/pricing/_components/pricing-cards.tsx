@@ -5,12 +5,12 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { Check, X } from "@phosphor-icons/react";
-
 // import { BillingFormButton } from "~/components/forms/billing-form-button";
+import { Button, buttonVariants } from "ui/button";
+import { ToggleGroup, ToggleGroupItem } from "ui/toggle-group";
+
 import HeaderSection from "~/components/shared/header-section";
 import MaxWidthWrapper from "~/components/shared/max-width-wrapper";
-import { Button, buttonVariants } from "~/components/ui/button";
-import { ToggleGroup, ToggleGroupItem } from "~/components/ui/toggle-group";
 import { siteConfig } from "~/config/site";
 import { pricingData } from "~/config/subscription";
 import { SubscriptionPlan, UserSubscriptionPlan } from "~/types";

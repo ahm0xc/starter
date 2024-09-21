@@ -5,8 +5,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 
 import { ArrowRight } from "@phosphor-icons/react";
-
-import { Button } from "~/components/ui/button";
+import { Button } from "ui/button";
 import {
   CommandDialog,
   CommandEmpty,
@@ -14,7 +13,8 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "~/components/ui/command";
+} from "ui/command";
+
 import { sidebarLinks } from "~/config/dashboard";
 import type { UserRole } from "~/server/db/schema/users";
 import { cn } from "~/utils/tailwindcss";

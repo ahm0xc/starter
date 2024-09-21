@@ -2,9 +2,10 @@ import { Suspense } from "react";
 
 import Link from "next/link";
 
+import { buttonVariants } from "ui/button";
+
 import { UserAuthForm } from "~/components/forms/user-auth-form";
 import { Icons } from "~/components/shared/icons";
-import { buttonVariants } from "~/components/ui/button";
 import { cn } from "~/utils/tailwindcss";
 
 export const metadata = {

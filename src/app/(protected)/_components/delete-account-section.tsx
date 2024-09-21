@@ -1,12 +1,12 @@
 "use client";
 
 import { Trash, X } from "@phosphor-icons/react";
+import { Button } from "ui/button";
 
 import { useModalsStore } from "~/components/modals";
 import DeleteAccountConfirmationModal, {
   DeleteAccountConfirmationModalId,
 } from "~/components/modals/delete-account-confirmation";
-import { Button } from "~/components/ui/button";
 import { siteConfig } from "~/config/site";
 
 import { SectionColumns } from "./section-column";

@@ -3,20 +3,19 @@
 import * as React from "react";
 
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
-
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "~/components/ui/card";
+} from "ui/card";
 import {
   type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "~/components/ui/chart";
+} from "ui/chart";
 
 const chartData = [
   { date: "2024-04-01", desktop: 222, mobile: 150 },

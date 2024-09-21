@@ -1,11 +1,11 @@
-import { Button } from "~/components/ui/button";
+import { Button } from "ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "~/components/ui/card";
+} from "ui/card";
 
 export function UpgradeCard() {
   return (

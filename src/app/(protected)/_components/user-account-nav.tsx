@@ -6,16 +6,16 @@ import Link from "next/link";
 
 import { LayoutDashboard, Lock, LogOut, Settings } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
-import { Drawer } from "vaul";
-
-import UserAvatar from "~/components/shared/user-avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "~/components/ui/dropdown-menu";
+} from "ui/dropdown-menu";
+import { Drawer } from "vaul";
+
+import UserAvatar from "~/components/shared/user-avatar";
 import { useMediaQuery } from "~/hooks/use-media-query";
 
 export function UserAccountNav() {

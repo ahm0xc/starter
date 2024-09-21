@@ -9,11 +9,11 @@ import { GoogleLogo, Spinner } from "@phosphor-icons/react";
 import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { buttonVariants } from "ui/button";
+import { Input } from "ui/input";
+import { Label } from "ui/label";
 import type * as z from "zod";
 
-import { buttonVariants } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
-import { Label } from "~/components/ui/label";
 import { userAuthSchema } from "~/lib/validations/auth";
 import { cn } from "~/utils/tailwindcss";
 

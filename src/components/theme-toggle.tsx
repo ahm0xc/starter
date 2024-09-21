@@ -2,8 +2,8 @@
 
 import { MoonStars, Sun } from "@phosphor-icons/react";
 import { useTheme } from "next-themes";
+import { Button, type ButtonProps } from "ui/button";
 
-import { Button, type ButtonProps } from "~/components/ui/button";
 import { useMounted } from "~/hooks/use-mounted";
 import { cn } from "~/utils/tailwindcss";
 

@@ -2,8 +2,8 @@ import Link from "next/link";
 
 import type { Doc } from "contentlayer/generated";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { buttonVariants } from "ui/button";
 
-import { buttonVariants } from "~/components/ui/button";
 import { docsConfig } from "~/config/docs";
 import { cn } from "~/utils/tailwindcss";
 

@@ -7,11 +7,7 @@ import { Spinner } from "@phosphor-icons/react";
 import { useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { type z } from "zod";
-
-import { updateUserRole } from "~/actions/user";
-import { SectionColumns } from "~/app/(protected)/_components/section-column";
-import { Button } from "~/components/ui/button";
+import { Button } from "ui/button";
 import {
   Form,
   FormControl,
@@ -19,14 +15,18 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "~/components/ui/form";
+} from "ui/form";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "~/components/ui/select";
+} from "ui/select";
+import { type z } from "zod";
+
+import { updateUserRole } from "~/actions/user";
+import { SectionColumns } from "~/app/(protected)/_components/section-column";
 import { userRoleSchema } from "~/lib/validations/user";
 import { type User, type UserRole, userRoles } from "~/server/db/schema/users";
 
