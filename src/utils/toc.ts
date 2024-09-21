@@ -1,14 +1,24 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
+
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // TODO: Fix this when we turn strict mode on.
+import { type Nodes } from "mdast";
 import { toc } from "mdast-util-toc";
 import { remark } from "remark";
 import { visit } from "unist-util-visit";
 
 const textTypes = ["text", "emphasis", "strong", "inlineCode"];
 
-function flattenNode(node) {
-  const p = [];
+function flattenNode(node: any) {
+  const p: any[] = [];
   visit(node, (node) => {
-    if (!textTypes.includes(node.type)) return;
+    if (!textTypes.includes(node.type as string)) return;
     p.push(node.value);
   });
   return p.join(``);
@@ -24,7 +34,7 @@ interface Items {
   items?: Item[];
 }
 
-function getItems(node, current): Items {
+function getItems(node: any, current: any): Items {
   if (!node) {
     return {};
   }
@@ -32,7 +42,7 @@ function getItems(node, current): Items {
   if (node.type === "paragraph") {
     visit(node, (item) => {
       if (item.type === "link") {
-        current.url = item.url;
+        current.url = item.url as string;
         current.title = flattenNode(node);
       }
 
@@ -41,13 +51,13 @@ function getItems(node, current): Items {
       }
     });
 
-    return current;
+    return current as Items;
   }
 
   if (node.type === "list") {
-    current.items = node.children.map((i) => getItems(i, {}));
+    current.items = node.children.map((i: any) => getItems(i, {})) as any;
 
-    return current;
+    return current as Items;
   } else if (node.type === "listItem") {
     const heading = getItems(node.children[0], {});
 
@@ -61,8 +71,8 @@ function getItems(node, current): Items {
   return {};
 }
 
-const getToc = () => (node, file) => {
-  const table = toc(node);
+const getToc = () => (node: any, file: any) => {
+  const table = toc(node as Nodes);
   file.data = getItems(table.map, {});
 };
 
@@ -73,5 +83,5 @@ export async function getTableOfContents(
 ): Promise<TableOfContents> {
   const result = await remark().use(getToc).process(content);
 
-  return result.data;
+  return result.data as Items;
 }

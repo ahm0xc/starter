@@ -70,9 +70,11 @@ export default async function PostPage({
 
   const toc = await getTableOfContents(post.body.raw);
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const [thumbnailBlurhash, images] = await Promise.all([
     getBlurDataURL(post.image),
     await Promise.all(
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       post.images.map(async (src: string) => ({
         src,
         blurDataURL: await getBlurDataURL(src),
@@ -125,6 +127,7 @@ export default async function PostPage({
           <div className="relative col-span-4 mb-10 flex flex-col space-y-8 border-y bg-background md:rounded-xl md:border lg:col-span-3">
             <BlurImage
               alt={post.title}
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
               blurDataURL={thumbnailBlurhash ?? placeholderBlurhash}
               className="aspect-[1200/630] border-b object-cover md:rounded-t-xl"
               width={1200}
@@ -135,7 +138,16 @@ export default async function PostPage({
               sizes="(max-width: 768px) 770px, 1000px"
             />
             <div className="px-[.8rem] pb-10 md:px-8">
-              <Mdx code={post.body.code} images={images} />
+              <Mdx
+                code={post.body.code}
+                images={
+                  images as {
+                    alt: string;
+                    src: string;
+                    blurDataURL: string;
+                  }[]
+                }
+              />
             </div>
           </div>
 

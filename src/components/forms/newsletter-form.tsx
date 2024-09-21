@@ -29,7 +29,7 @@ export function NewsletterForm() {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  function onSubmit(_data: z.infer<typeof FormSchema>) {
     form.reset();
     // TODO: handle submit
     toast("Subscribed to our newsletter");

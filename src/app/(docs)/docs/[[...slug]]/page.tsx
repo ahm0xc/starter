@@ -19,7 +19,7 @@ interface DocPageProps {
   };
 }
 
-async function getDocFromParams(params: unknown) {
+async function getDocFromParams(params: { slug: string[] }) {
   const slug = params.slug?.join("/") || "";
   const doc = allDocs.find((doc) => doc.slugAsParams === slug);
 
@@ -60,7 +60,9 @@ export default async function DocPage({ params }: DocPageProps) {
 
   const toc = await getTableOfContents(doc.body.raw);
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const images = await Promise.all(
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     doc.images.map(async (src: string) => ({
       src,
       blurDataURL: await getBlurDataURL(src),
@@ -72,7 +74,16 @@ export default async function DocPage({ params }: DocPageProps) {
       <div className="mx-auto w-full min-w-0">
         <DocsPageHeader heading={doc.title} text={doc.description} />
         <div className="pb-4 pt-11">
-          <Mdx code={doc.body.code} images={images} />
+          <Mdx
+            code={doc.body.code}
+            images={
+              images as {
+                alt: string;
+                src: string;
+                blurDataURL: string;
+              }[]
+            }
+          />
         </div>
         <hr className="my-4 md:my-6" />
         <DocsPager doc={doc} />

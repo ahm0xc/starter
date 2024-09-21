@@ -12,7 +12,10 @@ interface DocsPagerProps {
 }
 
 export function DocsPager({ doc }: DocsPagerProps) {
-  const pager = getPagerForDoc(doc);
+  const pager = getPagerForDoc(doc) as {
+    prev: { href: string; title: string };
+    next: { href: string; title: string };
+  };
 
   if (!pager) {
     return null;
@@ -43,7 +46,10 @@ export function DocsPager({ doc }: DocsPagerProps) {
 }
 
 export function getPagerForDoc(doc: Doc) {
-  const flattenedLinks = [null, ...flatten(docsConfig.sidebarNav), null];
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const flattenedLinks = [null, ...flatten(docsConfig.sidebarNav), null] as {
+    href: string;
+  }[];
   const activeIndex = flattenedLinks.findIndex(
     (link) => doc.slug === link?.href
   );
@@ -58,8 +64,11 @@ export function getPagerForDoc(doc: Doc) {
   };
 }
 
-export function flatten(links: { items? }[]) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function flatten(links: { items?: any }[]): any[] {
   return links.reduce((flat, link) => {
+    // @ts-expect-error ???
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     return flat.concat(link.items ? flatten(link.items) : link);
   }, []);
 }

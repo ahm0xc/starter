@@ -14,6 +14,7 @@ import ThemeToggle from "~/components/theme-toggle";
 import { docsConfig } from "~/config/docs";
 import { marketingConfig } from "~/config/marketing";
 import { siteConfig } from "~/config/site";
+import { type NavItem } from "~/types";
 import { cn } from "~/utils/tailwindcss";
 
 export function NavMobile() {
@@ -29,8 +30,10 @@ export function NavMobile() {
     docs: docsConfig.mainNav,
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const links =
-    (selectedLayout && configMap[selectedLayout]) || marketingConfig.mainNav;
+    // @ts-expect-error ???
+    (selectedLayout && configMap[selectedLayout]) ?? marketingConfig.mainNav;
 
   // prevent body scroll when modal is open
   useEffect(() => {
@@ -65,8 +68,8 @@ export function NavMobile() {
       >
         <ul className="grid divide-y divide-muted">
           {links &&
-            links.length > 0 &&
-            links.map(({ title, href }) => (
+            (links as NavItem[]).length > 0 &&
+            (links as NavItem[]).map(({ title, href }) => (
               <li key={href} className="py-3">
                 <Link
                   href={href}
