@@ -29,7 +29,7 @@ export default async function Dashboard({ children }: ProtectedLayoutProps) {
               <SearchCommand role={session.user.role} />
             </div>
 
-            <ThemeToggle />
+            <ThemeToggle className="rounded-full h-9 w-9" />
             <UserAccountNav />
           </MaxWidthWrapper>
         </header>
