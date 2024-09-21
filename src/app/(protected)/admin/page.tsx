@@ -1,11 +1,11 @@
 import { DashboardHeader } from "../_components/dashboard-header";
 
-export default function DashboardPage() {
+export default function AdminPage() {
   return (
     <div>
       <DashboardHeader
-        heading="Dashboard"
-        text="Manage & See all your activities"
+        heading="Admin Panel"
+        text="Access only for users with ADMIN role."
       />
     </div>
   );
