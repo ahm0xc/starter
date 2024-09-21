@@ -1,5 +1,9 @@
 https://github.com/mickasmt/next-saas-stripe-starter
 
+TODO:
+
+- fix linting errors
+
 Feature plans:
 
 - tanstack dev tools @tanstack/react-query-devtools

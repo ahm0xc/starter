@@ -1,6 +1,6 @@
 import type { Icon as PhosphorIconType } from "@phosphor-icons/react";
 
-import { User, type UserRole } from "~/server/db/schema/users";
+import { type User, type UserRole } from "~/server/db/schema/users";
 
 export type SiteConfig = {
   name: string;

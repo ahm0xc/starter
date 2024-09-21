@@ -13,7 +13,7 @@ import HeaderSection from "~/components/shared/header-section";
 import MaxWidthWrapper from "~/components/shared/max-width-wrapper";
 import { siteConfig } from "~/config/site";
 import { pricingData } from "~/config/subscription";
-import { SubscriptionPlan, UserSubscriptionPlan } from "~/types";
+import { type SubscriptionPlan, type UserSubscriptionPlan } from "~/types";
 import { cn } from "~/utils/tailwindcss";
 
 interface PricingCardsProps {
