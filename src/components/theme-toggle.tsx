@@ -4,9 +4,11 @@ import { MoonStars, Sun } from "@phosphor-icons/react";
 import { useTheme } from "next-themes";
 
 import { Button } from "~/components/ui/button";
+import { useMounted } from "~/hooks/use-mounted";
 
 export default function ThemeToggle() {
   const { setTheme, theme } = useTheme();
+  const isMounted = useMounted();
 
   function toggleTheme() {
     if (theme === "dark") {
@@ -15,6 +17,8 @@ export default function ThemeToggle() {
       setTheme("dark");
     }
   }
+
+  if (!isMounted) return;
 
   return (
     <Button
