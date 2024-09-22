@@ -2,6 +2,10 @@ import { type Metadata } from "next";
 
 import { siteConfig } from "~/config/site";
 
+export async function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export function constructMetadata({
   title = siteConfig.name,
   description = siteConfig.description,
